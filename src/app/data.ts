@@ -1,4 +1,4 @@
-const classes = [
+export const classes = [
   {
     name: "Graphics",
     teacher: "Kyle",
