@@ -1,5 +1,8 @@
 <div class="container">
-  <table mat-table [dataSource]="classData" class="mat-elevation-z8">
+  <mat-form-field style="width: 700px;">
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter" [(ngModel)]="searchText" #input>
+  </mat-form-field>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
       <th mat-header-cell class="bigger-font-size" *matHeaderCellDef> Name </th>
       <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
@@ -17,7 +20,15 @@
         {{ element.students.length / element.maxNoOfStudents | percent }} </td>
     </ng-container>
 
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell class="bigger-font-size space-left" *matHeaderCellDef>Actions</th>
+      <td class="space-left" mat-cell *matCellDef="let element;let i=index">
+        <button mat-raised-button color="warn" type="button" style="margin-left:2px" (click)="delete()">Delete Class</button>
+        <button mat-raised-button color="primary" type="button" style="margin-left:2px" (click)="add()">Add Student</button>
+      </td>
+    </ng-container>
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>

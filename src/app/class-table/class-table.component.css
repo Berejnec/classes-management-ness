@@ -1,13 +1,16 @@
 .container {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   padding-top: 5vh;
+  padding-left: 10vh;
 }
 
 table {
   width: 90%;
   height: 300px;
   background-color: #caffff;
+  padding-left: 10vh;
 }
 
 .bigger-font-size {
@@ -16,4 +19,8 @@ table {
 
 .bold-text {
   font-weight: bold;
+}
+
+.space-left {
+  padding-left: 7vh;
 }

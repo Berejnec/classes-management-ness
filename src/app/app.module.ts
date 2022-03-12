@@ -10,13 +10,21 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
 import { OccupancyComponent } from './occupancy/occupancy.component';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SearchComponent } from './search/search.component';
+import { SearchfilterPipe } from './searchfilter.pipe';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ClassTableComponent,
-    OccupancyComponent
+    OccupancyComponent,
+    SearchComponent,
+    SearchfilterPipe
   ],
   imports: [
     BrowserModule,
@@ -25,7 +33,11 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     TableModule,
     NoopAnimationsModule,
     MatTableModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ClassService} from "../class.service";
 import {Class} from "../class.model";
 import {classes} from "../data";
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-class-table',
@@ -11,6 +12,7 @@ import {classes} from "../data";
 export class ClassTableComponent implements OnInit {
   classData: Class[] = classes;
   maxNumber!: number[];
+  searchText!: string;
 
   constructor(private classService: ClassService) { }
 
@@ -18,6 +20,20 @@ export class ClassTableComponent implements OnInit {
     this.maxNumber = this.classService.getClassMaxNoOfStudents();
   }
 
-  displayedColumns: string[] = ['name', 'teacher', 'class-occupancy'];
+  displayedColumns: string[] = ['name', 'teacher', 'class-occupancy', 'actions'];
+  dataSource = new MatTableDataSource(this.classData);
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  delete() {
+
+  }
+
+  add() {
+
+  }
 
 }

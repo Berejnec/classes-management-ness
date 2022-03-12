@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
-import {classes} from 'src/app/data';
 import {Class} from "./class.model";
+import {classes} from "./data";
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class ClassService {
        maxNumber[i] = obj.maxNoOfStudents;
     });
     return maxNumber;
+  }
+
+  getClassOccupancy(maxNumber: number, studentsEnrolled: number) {
+    return (studentsEnrolled / maxNumber * 100);
   }
 
 }
