@@ -1,1 +1,23 @@
-<p-table></p-table>
+<div class="container">
+  <table mat-table [dataSource]="classData" class="mat-elevation-z8">
+    <ng-container matColumnDef="name">
+      <th mat-header-cell class="bigger-font-size" *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="teacher">
+      <th mat-header-cell class="bigger-font-size" *matHeaderCellDef> Teacher </th>
+      <td mat-cell *matCellDef="let element"> {{element.teacher}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="class-occupancy">
+      <th mat-header-cell class="bigger-font-size" *matHeaderCellDef> Class Occupancy </th>
+      <td mat-cell *matCellDef="let element" class="bold-text">
+        <app-occupancy [value]="element.students.length / element.maxNoOfStudents * 100"></app-occupancy>
+        {{ element.students.length / element.maxNoOfStudents | percent }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding-top: 5vh;
+}
+
+table {
+  width: 90%;
+  height: 300px;
+  background-color: #caffff;
+}
+
+.bigger-font-size {
+  font-size: x-large;
+}
+
+.bold-text {
+  font-weight: bold;
+}

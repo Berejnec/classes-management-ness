@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { classes } from 'src/app/data';
+import {Injectable} from '@angular/core';
+import {classes} from 'src/app/data';
 import {Class} from "./class.model";
 
 @Injectable({
@@ -11,23 +11,12 @@ export class ClassService {
 
   constructor() { }
 
-  getClassesData() {
-    return this.classesData;
+  getClassMaxNoOfStudents() {
+    let maxNumber: number[] = [];
+    this.classesData.forEach((obj, i) => {
+       maxNumber[i] = obj.maxNoOfStudents;
+    });
+    return maxNumber;
   }
 
-  getClassName(id: number) {
-    return this.classesData[id].name;
-  }
-
-  getClassTeacher(id: number) {
-    return this.classesData[id].teacher;
-  }
-
-  getClassMaxNoOfStudents(id: number) {
-    return this.classesData[id].maxNoOfStudents;
-  }
-
-  getClassStudents(id: number) {
-    return this.classesData[id].students;
-  }
 }
