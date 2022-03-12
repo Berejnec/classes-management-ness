@@ -1,0 +1,10 @@
+  <mat-progress-bar
+    [ngClass]="{
+    'green-progress' : setGreenProgressBar(),
+    'yellow-progress' : setYellowProgressBar(),
+    'red-progress' : setRedProgressBar()
+    }"
+    class="green-progress"
+    mode="determinate"
+    value="{{ value }}"
+  ></mat-progress-bar>
