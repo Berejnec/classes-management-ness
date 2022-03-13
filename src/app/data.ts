@@ -3,7 +3,7 @@ export const classes = [
     name: "Graphics",
     teacher: "Kyle",
     maxNoOfStudents: 10,
-    students: [{name: 'John'}, {name: 'Beth'}]
+    students: [{name: 'John'}, {name: 'Beth'}, {name: 'Beth'}]
   },
   {
     name: "Mechatronics",

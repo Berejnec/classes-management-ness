@@ -23,8 +23,8 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell class="bigger-font-size space-left" *matHeaderCellDef>Actions</th>
       <td class="space-left" mat-cell *matCellDef="let element;let i=index">
-        <button mat-raised-button color="warn" type="button" style="margin-left:2px" (click)="delete()">Delete Class</button>
-        <button mat-raised-button color="primary" type="button" style="margin-left:2px" (click)="add()">Add Student</button>
+        <button mat-raised-button color="warn" type="button" style="margin-left:2px" (click)="delete(i)">Delete Class</button>
+        <button mat-raised-button color="primary" type="button" [disabled]="element.students.length / element.maxNoOfStudents * 100 >= 100" style="margin-left:2px" (click)="openDialog('Add', element, i)">Add Student</button>
       </td>
     </ng-container>
 

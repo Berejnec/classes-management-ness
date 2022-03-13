@@ -1,27 +1,50 @@
 import {Injectable} from '@angular/core';
 import {Class} from "./class.model";
-import {classes} from "./data";
-
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClassService {
 
-  classesData: Class[] = classes;
+  classes = [
+    {
+      name: "Graphics",
+      teacher: "Kyle",
+      maxNoOfStudents: 10,
+      students: [{name: 'John'}, {name: 'Beth'}]
+    },
+    {
+      name: "Mechatronics",
+      teacher: "Allen",
+      maxNoOfStudents: 15,
+      students: [{name: "Stewie"}, {name: "Chris"}, {name: "Peter"}, {name: "Brian"}]
+    },
+    {
+      name: "Robotics",
+      teacher: "Anna",
+      maxNoOfStudents: 5,
+      students: [{name: "Andrew"}, {name: "Leia"}, {name: "John"}, {name: "Max"}]
+    }
+  ]
 
   constructor() { }
 
-  getClassMaxNoOfStudents() {
-    let maxNumber: number[] = [];
-    this.classesData.forEach((obj, i) => {
-       maxNumber[i] = obj.maxNoOfStudents;
-    });
-    return maxNumber;
+  getData() {
+    return this.classes;
   }
 
-  getClassOccupancy(maxNumber: number, studentsEnrolled: number) {
-    return (studentsEnrolled / maxNumber * 100);
+  updateData(class1: Class[]) {
+    const newClasses = [...this.classes];
+    newClasses.push(...class1);
+    this.classes = newClasses;
+  }
+
+  getClassMaxNoOfStudents(index: number) {
+    return this.classes[index].maxNoOfStudents;
+  }
+
+  addStudent(student: {name: string}, index: number) {
+    this.classes[index].students.push(student);
   }
 
 }
