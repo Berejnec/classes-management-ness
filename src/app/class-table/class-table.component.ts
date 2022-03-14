@@ -12,6 +12,8 @@ import {DialogComponent} from "../dialog/dialog.component";
 })
 export class ClassTableComponent implements OnInit {
 
+  textParent: string = '';
+
   @ViewChild(MatTable, {static: true}) table!: MatTable<any>;
 
   searchText!: string;

@@ -1,7 +1,5 @@
 <div class="container">
-  <mat-form-field style="width: 700px;">
-    <input matInput (keyup)="applyFilter($event)" placeholder="Filter" [(ngModel)]="searchText" #input>
-  </mat-form-field>
+  <app-search [(searchText)]="textParent" (keyup)="applyFilter($event)"></app-search>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="name">
       <th mat-header-cell class="bigger-font-size" *matHeaderCellDef> Name </th>
